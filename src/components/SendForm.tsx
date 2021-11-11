@@ -15,11 +15,11 @@ const SendForm = () => {
         onChange={(e) => setValue(e.target.value)}
         value={value}
         placeholder="E-posta adresiniz"
-        className="outline-none text-gray-700 px-5 text-sm flex-1 "
+        className="outline-none text-gray-700 px-5 text-sm flex-1 w-14 "
       />
       <button
         type="submit"
-        className="bg-primary text-white rounded-3xl px-8 py-2 mr-2 hover:bg-secondary transition-all duration-150 ease-out  "
+        className="bg-primary  text-white rounded-3xl px-4 md:px-8 py-2 mr-2 hover:bg-secondary transition-all duration-150 ease-out  "
       >
         Gönder
       </button>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useTimer = (targetDate: string) => {
+export const useTimer = (targetDate: Date) => {
   const [finish, setFinish] = useState(false);
   const [dayes, setDayes] = useState(0);
   const [hours, setHours] = useState(0);

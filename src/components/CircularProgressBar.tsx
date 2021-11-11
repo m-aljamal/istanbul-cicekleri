@@ -1,59 +1,77 @@
 import React from "react";
 
-const CircularProgressBar = (props) => {
-  const sqSize = props.sqSize;
-  // SVG centers the stroke width on the radius, subtract out so circle fits in square
-  const radius = (props.sqSize - props.strokeWidth) / 2;
-  // Enclose cicle in a circumscribing square
+const calculatePercentage = (start: Date, end: Date) => {
+  const today = new Date();
+  const prs = Math.round(((+today - +start) / (+end - +start)) * 100);
+  return prs;
+};
+
+const CircularProgressBar = ({
+  start,
+  end,
+  number,
+  text,
+}: {
+  number: number;
+  text: string;
+  start: Date;
+  end: Date;
+}) => {
+  const sqSize = 100;
+
+  const radius = (sqSize - 2) / 2;
+
   const viewBox = `0 0 ${sqSize} ${sqSize}`;
-  // Arc length at 100% coverage is the circle circumference
+
   const dashArray = radius * Math.PI * 2;
-  // Scale 100% coverage overlay with the actual percent
-  const dashOffset = dashArray - (dashArray * props.percentage) / 100;
+
+  const dashOffset =
+    dashArray - (dashArray * calculatePercentage(start, end)) / 100;
   return (
-    <svg width={props.sqSize} height={props.sqSize} viewBox={viewBox}>
-      <circle
-        className="circle-background"
-        cx={props.sqSize / 2}
-        cy={props.sqSize / 2}
-        r={radius}
-        strokeWidth={`${props.strokeWidth}px`}
-      />
+    <div>
+      <svg width={sqSize} height={sqSize} viewBox={viewBox}>
+        <circle
+          className="circle-background"
+          cx={sqSize / 2}
+          cy={sqSize / 2}
+          r={radius}
+          strokeWidth={`${2}px`}
+        />
 
-      <circle
-        className="circle-progress"
-        cx={props.sqSize / 2}
-        cy={props.sqSize / 2}
-        r={radius}
-        strokeWidth={`${props.strokeWidth}px`}
-        // Start progress marker at 12 O'Clock
-        transform={`rotate(-90 ${props.sqSize / 2} ${props.sqSize / 2})`}
-        style={{
-          strokeDasharray: dashArray,
-          strokeDashoffset: dashOffset,
-        }}
-      />
+        <circle
+          className="circle-progress "
+          cx={sqSize / 2}
+          cy={sqSize / 2}
+          r={radius}
+          strokeWidth={`${2}px`}
+          transform={`rotate(-90 ${sqSize / 2} ${sqSize / 2})`}
+          style={{
+            strokeDasharray: dashArray,
+            strokeDashoffset: dashOffset,
+          }}
+        />
 
-      <text
-        className="circle-text font-bold text-2xl"
-        x="50%"
-        y="40%"
-        dy=".3em"
-        textAnchor="middle"
-      >
-        {20}
-      </text>
+        <text
+          className="circle-text font-bold text-2xl"
+          x="50%"
+          y="40%"
+          dy=".3em"
+          textAnchor="middle"
+        >
+          {number}
+        </text>
 
-      <text
-        className="circle-text"
-        x="50%"
-        y="65%"
-        dy=".3em"
-        textAnchor="middle"
-      >
-        {`Gun`}
-      </text>
-    </svg>
+        <text
+          className="circle-text"
+          x="50%"
+          y="65%"
+          dy=".3em"
+          textAnchor="middle"
+        >
+          {text}
+        </text>
+      </svg>
+    </div>
   );
 };
 

@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import Circle from "./Circle";
 import { useTimer } from "src/hooks/useTimer";
 import SocialMedia from "./SocialMedia";
 import CircularProgressBar from "./CircularProgressBar";
 
+const start = new Date("11/01/2021");
+const end = new Date("11/17/2021");
 const LeftSide = () => {
-  const { dayes, hours, minutes, seconds } = useTimer("11/17/2021");
+  const { dayes, hours, minutes, seconds } = useTimer(end);
   return (
     <div className="h-[550px] md:h-screen mt-8 md:mt-0 md:w-1/2 w-full ">
       <div className=" relative h-full ">
@@ -25,14 +26,29 @@ const LeftSide = () => {
               Buluşmaya Kalan Süre
             </h2>
             <div className="flex flex-wrap gap-4 justify-center ">
-              <Circle number={dayes} text="Gün" />
-              <Circle number={hours} text="Saat" />
-              <Circle number={minutes} text="Dakika" />
-              <Circle number={seconds} text="Saniye" />
               <CircularProgressBar
-                strokeWidth="2"
-                sqSize="100"
-                percentage={25}
+                start={start}
+                end={end}
+                number={dayes}
+                text="Gün"
+              />
+              <CircularProgressBar
+                start={start}
+                end={end}
+                number={hours}
+                text="Saat"
+              />
+              <CircularProgressBar
+                start={start}
+                end={end}
+                number={minutes}
+                text="Dakika"
+              />
+              <CircularProgressBar
+                start={start}
+                end={end}
+                number={seconds}
+                text="Saniye"
               />
             </div>
 
