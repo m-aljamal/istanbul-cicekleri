@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.round {
+  @apply rounded-tr-3xl rounded-tl-3xl  md:rounded-tr-none md:rounded-tl-none;
+}
+
+.circle-background,
+.circle-progress {
+  fill: none;
+}
+
+.circle-background {
+  stroke: rgba(255, 255, 255, 0.4);
+}
+
+.circle-progress {
+  stroke: rgb(255, 255, 255);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+ 
+
+.circle-text {
+  fill: white;
+}
+
+ 

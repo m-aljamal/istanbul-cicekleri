@@ -30,7 +30,7 @@ const SocialMedia = () => {
         <div key={item.id}>
           <a href={item.link} target="_blank">
             <i
-              className={`${item.icon} fa-lg text-primary hover:text-secondary transition-all duration-150 ease-out `}
+              className={`${item.icon} fa-lg md:text-primary text-white hover:text-secondary transition-all duration-150 ease-out `}
             ></i>
           </a>
         </div>
