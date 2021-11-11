@@ -28,7 +28,7 @@ const SocialMedia = () => {
     <div className="flex space-x-7 justify-center ">
       {socialMedai?.map((item) => (
         <div key={item.id}>
-          <a href={item.link} target="_blank">
+          <a href={item.link} target="_blank" rel="noreferrer">
             <i
               className={`${item.icon} fa-lg md:text-primary text-white hover:text-secondary transition-all duration-150 ease-out `}
             ></i>
