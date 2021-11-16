@@ -5,7 +5,7 @@ import SocialMedia from "./SocialMedia";
 import CircularProgressBar from "./CircularProgressBar";
 
 const start = new Date("11/01/2021");
-const end = new Date("11/17/2021");
+const end = new Date("11/25/2021");
 const LeftSide = () => {
   const { dayes, hours, minutes, seconds } = useTimer(end);
   return (
@@ -25,7 +25,7 @@ const LeftSide = () => {
             <h2 className=" text-white md:text-3xl text-xl mb-3 text-center">
               Buluşmaya Kalan Süre
             </h2>
-            <div className="flex flex-wrap gap-4 justify-center ">
+            <div className="flex  gap-4 justify-center ">
               <CircularProgressBar
                 start={start}
                 end={end}

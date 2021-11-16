@@ -29,7 +29,7 @@ const CircularProgressBar = ({
     dashArray - (dashArray * calculatePercentage(start, end)) / 100;
   return (
     <div>
-      <svg width={sqSize} height={sqSize} viewBox={viewBox}>
+      <svg className="w-full" height={sqSize} viewBox={viewBox}>
         <circle
           className="circle-background"
           cx={sqSize / 2}
